@@ -16,7 +16,7 @@ function AD.OnUpdate()
 	for i = 1, NPCs.Count() do
 		local tNPC = NPCs.Get(i)
 		local sameTeam = Entity.GetTeamNum(tNPC) == myTeam
-		if not sameTeam and not NPC.IsDormant(tNPC) and Entity.GetHealth(tNPC) > 0 then
+		if not sameTeam and not Entity.IsDormant(tNPC) and Entity.GetHealth(tNPC) > 0 then
 			if NPC.GetUnitName(tNPC) == "npc_dota_observer_wards" or NPC.GetUnitName(tNPC) == "npc_dota_sentry_wards" then
 				if NPC.IsEntityInRange(tNPC, myHero, 435) and (os.clock() - time) > 0.5 then
 					if it and Ability.IsReady(it) then
