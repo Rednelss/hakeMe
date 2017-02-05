@@ -21,22 +21,19 @@ function AD.OnUpdate()
 				if NPC.IsEntityInRange(tNPC, myHero, 435) and (os.clock() - time) > 0.5 then
 					if it and Ability.IsReady(it) then
 						Ability.CastTarget(it, tNPC)
-						time = os.clock()
 					end
 					if bf and Ability.IsReady(bf) then
 						Ability.CastTarget(bf, tNPC)
-						time = os.clock()
 					end
 					if qb and Ability.IsReady(qb) then
 						Ability.CastTarget(qb, tNPC)
-						time = os.clock()
 					end
 					if Menu.IsEnabled(AD.tango) then
 						if tango and Ability.IsReady(tango) then
 							Ability.CastTarget(tango, tNPC)
-							time = os.clock()
 						end
 					end
+					time = os.clock()
 				end
 			end
 		end
