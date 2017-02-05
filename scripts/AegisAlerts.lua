@@ -11,8 +11,8 @@ function AegisAlerts.OnDraw()
 	for i = 1, Heroes.Count() do
 		local hero = Heroes.Get(i)
 		local sameTeam = Entity.GetTeamNum(hero) == myTeam
-		if not sameTeam and not NPC.IsDormant(hero) and not NPC.IsIllusion(hero) and not NPC.IsRoshan(hero) and NPC.HasAegis(hero) and Entity.GetHealth(hero) > 0 then
-			local pos = NPC.GetAbsOrigin(hero)
+		if not sameTeam and not Entity.IsDormant(hero) and not NPC.IsIllusion(hero) and not NPC.IsRoshan(hero) and NPC.HasAegis(hero) and Entity.GetHealth(hero) > 0 then
+			local pos = Entity.GetAbsOrigin(hero)
 			local x, y, visible = Renderer.WorldToScreen(pos)
 			if visible then
 				Renderer.SetDrawColor(255, 0, 0, 255)
