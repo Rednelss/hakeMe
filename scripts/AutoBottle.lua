@@ -5,7 +5,6 @@ AB.optionEnable = Menu.AddOption({ "Awareness" }, "Auto Bottle", "Auto Bottle wh
 function AB.OnUpdate()
 	if not Menu.IsEnabled(AB.optionEnable) then return end
 	local myHero = Heroes.GetLocal()
-	local myTeam = Entity.GetTeamNum(myHero)
 	local BB = NPC.GetItem(myHero, "item_bottle", true)
 	if BB and NPC.HasModifier(myHero, "modifier_fountain_aura_buff") and Ability.IsReady(BB) then
 		if Entity.GetHealth(myHero) < Entity.GetMaxHealth(myHero) or NPC.GetMana(myHero) < NPC.GetMaxMana(myHero) then
