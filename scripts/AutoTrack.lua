@@ -17,12 +17,12 @@ function AutoTrack.OnUpdate()
 		if not sameTeam and not NPC.IsDormant(hero) and Entity.GetHealth(hero) > 0 then
 			local pos = NPC.GetAbsOrigin(hero)
 			if Menu.IsEnabled(AutoTrack.autoInvisibility) then
-				if Ability.IsReady(track) and Ability.IsReady(shadowwalk) and NPC.GetMana(myHero) > Ability.GetManaCost(shadowwalk) + Ability.GetManaCost(track) and NPC.IsEntityInRange(hero, myHero, Ability.GetCastRange(track) - 10) and not NPC.HasModifier(hero, "modifier_bounty_hunter_track") then
+				if Ability.IsReady(track) and Ability.IsReady(shadowwalk) and NPC.GetMana(myHero) > Ability.GetManaCost(shadowwalk) + Ability.GetManaCost(track) and NPC.IsEntityInRange(hero, myHero, Ability.GetCastRange(track) - 10) and not NPC.HasModifier(hero, "modifier_bounty_hunter_track") and not NPC.IsLinkensProtected(hero) then
 					Ability.CastTarget(track, hero)
 					Ability.CastNoTarget(shadowwalk)
 				end
 			else
-				if Ability.IsReady(track) and NPC.IsEntityInRange(hero, myHero, Ability.GetCastRange(track) - 10) and not NPC.HasModifier(hero, "modifier_bounty_hunter_track") then
+				if Ability.IsReady(track) and NPC.IsEntityInRange(hero, myHero, Ability.GetCastRange(track) - 10) and not NPC.HasModifier(hero, "modifier_bounty_hunter_track") and not NPC.IsLinkensProtected(hero) then
 					Ability.CastTarget(track, hero)
 				end
 			end
