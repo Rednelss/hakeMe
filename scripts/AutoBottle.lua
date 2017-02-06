@@ -8,7 +8,7 @@ function AB.OnUpdate()
 	local BB = NPC.GetItem(myHero, "item_bottle", true)
 	if BB and NPC.HasModifier(myHero, "modifier_fountain_aura_buff") and Ability.IsReady(BB) then
 		if Entity.GetHealth(myHero) < Entity.GetMaxHealth(myHero) or NPC.GetMana(myHero) < NPC.GetMaxMana(myHero) then
-			if not NPC.HasModifier(myHero, "modifier_bottle_regeneration") then
+			if not NPC.HasModifier(myHero, "modifier_bottle_regeneration") and not NPC.IsChannellingAbility(myHero) then
 				Ability.CastNoTarget(BB)
 			end
 		end
